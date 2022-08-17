@@ -1,4 +1,4 @@
-package com.example.apple_insider_testui;
+package com.example.apple_insider_testui.apple_insider;
 
 import com.codeborne.selenide.ElementsCollection;
 

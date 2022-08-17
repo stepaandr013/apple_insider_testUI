@@ -1,4 +1,4 @@
-package com.example.apple_insider_testui;
+package com.example.apple_insider_testui.apple_insider;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -17,7 +17,7 @@ public class MainPage {
         textBoxInput.setValue(searchString);
         textBoxInput.sendKeys(Keys.ENTER);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

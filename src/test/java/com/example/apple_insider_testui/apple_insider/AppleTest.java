@@ -1,14 +1,10 @@
-package com.example.apple_insider_testui;
+package com.example.apple_insider_testui.apple_insider;
 
+import com.example.apple_insider_testui.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
-
-public class AppleTest extends BaseTest{
+public class AppleTest extends BaseTest {
 
     private final static String BASE_URL = "https://appleinsider.ru/";
     private final static String SEARCH_STRING = "Чем iPhone 13 отличается от iPhone 12";
