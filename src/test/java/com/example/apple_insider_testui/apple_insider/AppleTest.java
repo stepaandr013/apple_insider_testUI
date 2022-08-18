@@ -1,6 +1,6 @@
 package com.example.apple_insider_testui.apple_insider;
 
-import com.example.apple_insider_testui.BaseTest;
+import com.example.apple_insider_testui.core.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 

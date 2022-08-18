@@ -1,6 +1,6 @@
 package com.example.apple_insider_testui.hh_cv_test;
 
-import com.example.apple_insider_testui.BaseTest;
+import com.example.apple_insider_testui.core.BaseTest;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.Assert;
 import org.junit.Test;
