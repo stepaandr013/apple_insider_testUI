@@ -21,6 +21,12 @@ public class Specifications {
                 .build();
     }
 
+    public static ResponseSpecification responseSpecificationOK204(){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(204)
+                .build();
+    }
+
     public static ResponseSpecification responseSpecificationError400(){
         return new ResponseSpecBuilder()
                 .expectStatusCode(400)

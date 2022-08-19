@@ -3,6 +3,7 @@ package com.example.apple_insider_testui.ApiTests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.Clock;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -82,4 +83,29 @@ public class ReqresTest {
 
     }
 
+    @Test
+    public void updateUserTest(){
+        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK200());
+
+        UserUpdateClass userUpdateClass = new UserUpdateClass("morpheus", "zion resident");
+
+        UserUpdateResponse userUpdateResponse = given()
+                .body(userUpdateClass)
+                .when()
+                .put("api/users/2")
+                .then().log().all()
+                .extract().as(UserUpdateResponse.class);
+
+        String regexForTime = "(.{5})$";
+        String currentTime = Clock.systemUTC().instant().toString().replaceAll(regexForTime, "");
+        System.out.println(currentTime);
+        System.out.println(userUpdateResponse.getUpdatedAt().replaceAll(regexForTime, ""));
+        Assert.assertEquals(currentTime, userUpdateResponse.getUpdatedAt().replaceAll(regexForTime, ""));
+    }
+
+    @Test
+    public void deleteUserTest(){
+        Specifications.installSpecification(Specifications.requestSpecification(URL), Specifications.responseSpecificationOK204());
+        given().when().delete("api/users/2").then().log().all();
+    }
 }
