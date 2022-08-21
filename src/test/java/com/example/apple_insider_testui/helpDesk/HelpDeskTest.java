@@ -1,18 +1,28 @@
 package com.example.apple_insider_testui.helpDesk;
 
 import com.example.apple_insider_testui.core.BaseSeleniumTest;
+import com.example.apple_insider_testui.helpers.TestValues;
+import com.example.apple_insider_testui.readProperties.ConfigProvider;
+import org.junit.Assert;
 import org.junit.Test;
+
+
+import static com.example.apple_insider_testui.helpers.StringModifier.getUniqueString;
 
 public class HelpDeskTest extends BaseSeleniumTest {
 
     @Test
     public void checkTicket(){
-        String title = "Stepan Top Tester";
-        String body = "Test Selenium Body 123123123";
-        String email = "testSelenium@seleniumkek.md";
+        String title = getUniqueString(TestValues.TEST_TITLE);
 
-        MainPage mainPage = new MainPage();
-        mainPage.createTicket(title, body, email);
+        TicketPage ticketPage = new MainPage().createTicket(title, TestValues.TEST_BODY, TestValues.TEST_EMAIL)
+                .openLoginPage()
+                .auth(ConfigProvider.DEMO_LOGIN, ConfigProvider.DEMO_PASSWORD)
+                .findTicket(title);
+
+        Assert.assertTrue(ticketPage.getTitle().contains(title));
+        Assert.assertEquals(TestValues.TEST_EMAIL, ticketPage.getEmail());
+        Assert.assertEquals(TestValues.TEST_BODY, ticketPage.getDescription());
 
     }
 

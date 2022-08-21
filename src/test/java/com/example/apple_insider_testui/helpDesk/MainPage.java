@@ -33,6 +33,9 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
+    @FindBy(id = "userDropdown")
+    private WebElement loginButton;
+
     public MainPage() {
         driver.get(ConfigProvider.URL);
         PageFactory.initElements(driver, this);
@@ -49,6 +52,11 @@ public class MainPage extends BaseSeleniumPage {
         submitButton.click();
 
         return this;
+    }
+
+    public LoginPage openLoginPage(){
+        loginButton.click();
+        return new LoginPage();
     }
 
 }
