@@ -15,11 +15,13 @@ public class HelpDeskTest extends BaseSeleniumTest {
     public void checkTicket(){
         String title = getUniqueString(TestValues.TEST_TITLE);
 
-        TicketPage ticketPage = new MainPage().createTicket(title, TestValues.TEST_BODY, TestValues.TEST_EMAIL)
+        TicketPage ticketPage = new MainPage()
+                .createTicket(title, TestValues.TEST_BODY, TestValues.TEST_EMAIL)
                 .openLoginPage()
                 .auth(ConfigProvider.DEMO_LOGIN, ConfigProvider.DEMO_PASSWORD)
                 .findTicket(title);
 
+        System.out.println(ticketPage.test1());
         Assert.assertTrue(ticketPage.getTitle().contains(title));
         Assert.assertEquals(TestValues.TEST_EMAIL, ticketPage.getEmail());
         Assert.assertEquals(TestValues.TEST_BODY, ticketPage.getDescription());

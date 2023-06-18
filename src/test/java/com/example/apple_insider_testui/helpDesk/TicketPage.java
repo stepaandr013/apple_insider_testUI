@@ -31,4 +31,9 @@ public class TicketPage extends BaseSeleniumPage {
     public String getDescription(){
         return description.getText();
     }
+
+    public String test1(){
+        return "o";
+    }
+
 }

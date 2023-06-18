@@ -9,8 +9,8 @@ import org.junit.Before;
 abstract public class BaseTest {
 
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        Configuration.browser = "chrome";
+        WebDriverManager.firefoxdriver().setup();
+        Configuration.browser = "firefox";
         Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
